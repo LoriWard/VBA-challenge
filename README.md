@@ -23,15 +23,4 @@ I made the appropriate adjustments to the VBA script that will allow it to run o
 
 
 
-
-
-Submission
-
-
-To submit please upload the following to Github:
-
-
-A screen shot for each year of your results on the Multi Year Stock Data.
-
-
-VBA Scripts as separate files.
+Includes a screen shot for each year of the  results on the Multi Year Stock Data and VBA Scripts as separate files.
