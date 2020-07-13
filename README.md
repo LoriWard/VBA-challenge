@@ -23,4 +23,4 @@ I made the appropriate adjustments to the VBA script that will allow it to run o
 
 
 
-Includes a screen shot for each year of the  results on the Multi Year Stock Data and VBA Scripts as separate files.
+Includes a screenshot for each year of the  results on the Multi Year Stock Data and VBA Scripts as separate files.
