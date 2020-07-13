@@ -1,0 +1,102 @@
+Sub LL_VBA_HW():
+
+ For Each ws In Worksheets
+
+  
+ ws.Range("I1").Value = "Ticker"
+ ws.Range("J1").Value = "Yearly Change"
+ ws.Range("K1").Value = "Percent Change"
+ ws.Range("L1").Value = "Total Stock Volume"
+ 
+  
+ 
+ Dim OpenPrice As Double
+ Dim ClosePrice As Double
+ Dim OpenPrice_Row As Long
+ Dim Lastrow As Long
+ Dim Ticker As String
+ Dim YearlyCH As Double
+ Dim PercentCH As Double
+ Dim Total As Double
+ Dim i As Long
+ Dim j As Long
+ 
+ 
+
+ Total = 0
+ 
+ j = 2
+ OpenPrice_Row = 2
+ Lastrow = ws.Cells(Rows.Count, 1).End(xlUp).Row
+
+ For i = 2 To Lastrow
+     
+     
+     
+     If ws.Range("A" & i + 1).Value = ws.Range("A" & i).Value Then
+
+        Total = Total + ws.Range("G" & i).Value
+
+
+     Else
+       
+         Ticker = ws.Range("A" & i).Value
+
+        
+         OpenPrice = ws.Range("C" & OpenPrice_Row)
+         
+         ClosePrice = ws.Range("F" & i)
+         
+         YearlyCH = ClosePrice - OpenPrice
+
+         
+         If OpenPrice = 0 Then
+            PercentCH = 0
+            
+         Else
+            PercentCH = YearlyCH / OpenPrice
+         End If
+
+      
+         ws.Range("I" & j).Value = Ticker
+         ws.Range("L" & j).Value = Total + ws.Range("G" & i).Value
+         ws.Range("J" & j).Value = YearlyCH
+         ws.Range("K" & j).Value = PercentCH
+         ws.Range("K" & j).NumberFormat = "0.00%"
+         
+        
+         If ws.Range("J" & j).Value < 0 Then
+            ws.Range("J" & j).Interior.ColorIndex = 3
+            
+         Else
+            ws.Range("J" & j).Interior.ColorIndex = 4
+            
+            
+         End If
+
+         
+         j = j + 1
+         
+         Total = 0
+         
+         OpenPrice_Row = i + 1
+         
+        
+        End If
+     
+ 
+Next i
+
+Next ws
+
+End Sub
+
+
+
+
+
+  
+  
+  
+ 
+
